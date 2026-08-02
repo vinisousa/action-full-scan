@@ -9,6 +9,6 @@ jobs:
     name: Scan DEMO VSOUSA website
     steps:
       - name: ZAP Scan
-        uses: vinisousa/action-full-scan@v0.13.0
+        uses: vinisousa/action-full-scan@v0.1
         with:
           target: 'https://demo.vsousa.f5latam.app'
