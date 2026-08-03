@@ -37,3 +37,6 @@ TSV
           target: 'https://bank.vsousa.f5latam.app/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
+          http_login_form: '/login'
+          http_login_http_username: 'v.sousa@f5.com'
+          http_login_http_password: ${{ secrets.BANK_USER_PW }}
