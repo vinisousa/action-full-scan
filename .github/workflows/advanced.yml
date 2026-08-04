@@ -30,7 +30,7 @@ jobs:
           fi
 
       - name: Authenticate External Service
-        run: curl -H "Authorization: Bearer ${{ secrets.MERCHANT_TOKEN }}" https://example.com
+        run: curl -H "Authorization: Bearer ${{ secrets.MERCHANT_TOKEN }}" https://bank.vsousa.f5latam.app/merchant
 
       - name: ZAP Scan
         uses: vinisousa/action-full-scan@v0.1
