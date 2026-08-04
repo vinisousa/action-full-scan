@@ -30,7 +30,7 @@ jobs:
           fi
 
       - name: Authenticate External Service
-        run: curl -H "Authorization: Bearer ${{ secrets.MERCHANT_API_KEY }}" https://example.com
+        run: curl -H "Authorization: Bearer ${{ secrets.MERCHANT_TOKEN }}" https://example.com
 
       - name: ZAP Scan
         uses: vinisousa/action-full-scan@v0.1
@@ -44,4 +44,4 @@ jobs:
           http_login_http_username: 'v.sousa@f5.com'
           http_login_http_password: ${{ secrets.BANK_USER_PW }}
           # Inject the Auth API Key securely into ZAP's configuration
-          cmd_options: '-config replacer.full_list\(0\).description=auth_header -config replacer.full_list\(0\).enabled=true -config replacer.full_list\(0\).matchtype=REQ_HEADER -config replacer.full_list\(0\).matchstr=Authorization -config replacer.full_list\(0\).regex=false -config replacer.full_list\(0\).replacement="Bearer ${{ secrets.MERCHANT_KEY }}"'
+          cmd_options: '-config replacer.full_list\(0\).description=auth_header -config replacer.full_list\(0\).enabled=true -config replacer.full_list\(0\).matchtype=REQ_HEADER -config replacer.full_list\(0\).matchstr=X-Merchant-Api-Key -config replacer.full_list\(0\).regex=false -config replacer.full_list\(0\).replacement="${{ secrets.MERCHANT_KEY }}"'
