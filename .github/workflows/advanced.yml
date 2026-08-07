@@ -19,11 +19,7 @@ jobs:
         run: |
           mkdir -p .zap
           if [ ! -f .zap/rules.tsv ]; then
-            cat > .zap/rules.tsv <<'TSV'
-            rule_id\trule_description
-            10001\tExample: In Page Banner Information Leak
-            10015\tExample: Re-examine Cache-control Directives
-            TSV
+            printf 'rule_id\trule_description\n10001\tExample: In Page Banner Information Leak\n10015\tExample: Re-examine Cache-control Directives\n' > .zap/rules.tsv
             echo "Created .zap/rules.tsv (default)."
           else
             echo ".zap/rules.tsv already exists."
