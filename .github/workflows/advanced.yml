@@ -29,9 +29,6 @@ jobs:
             echo ".zap/rules.tsv already exists."
           fi
 
-      - name: Authenticate External Service
-        run: curl -H "Authorization: Bearer ${{ secrets.MERCHANT_TOKEN }}" https://bank.vsousa.f5latam.app/merchant
-
       - name: ZAP Scan
         uses: vinisousa/action-full-scan@v0.1
         with:
